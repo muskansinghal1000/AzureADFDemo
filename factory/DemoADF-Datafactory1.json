@@ -1,0 +1,9 @@
+{
+	"name": "DemoADF-Datafactory1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "91b6f14f-0fed-48b0-9515-5b1c0e280746",
+		"tenantId": "105c9c51-66bf-42df-8870-dceb2c09be24"
+	}
+}

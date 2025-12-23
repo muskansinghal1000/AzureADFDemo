@@ -1,0 +1,33 @@
+{
+	"name": "DS_copyspecificfiles",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_specificFile",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "input",
+				"fileSystem": "first-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "EnglishProductName",
+				"type": "String"
+			},
+			{
+				"name": "SalesAmount",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

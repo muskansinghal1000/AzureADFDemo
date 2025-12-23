@@ -1,0 +1,77 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_SqlServerfordataflow",
+						"type": "DatasetReference"
+					},
+					"name": "sqltable"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_TransformSql_into_Adls_DF",
+						"type": "DatasetReference"
+					},
+					"name": "sinkInAdls"
+				}
+			],
+			"transformations": [
+				{
+					"name": "countryindia",
+					"description": "Add expression for the filter"
+				},
+				{
+					"name": "rankedduplicatesAndCountTotalProdKey"
+				},
+				{
+					"name": "rank1"
+				},
+				{
+					"name": "selectcolumns"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OrderDate as string,",
+				"          ProductKey as string,",
+				"          Country as string,",
+				"          EnglishProductName as string,",
+				"          SalesAmount as string,",
+				"          TaxAmt as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> sqltable",
+				"sqltable filter(Country=='India') ~> countryindia",
+				"countryindia window(over(ProductKey),",
+				"     asc(ProductKey, true),",
+				"     rank = rowNumber(),",
+				"          {Total Sold} = count(ProductKey)) ~> rankedduplicatesAndCountTotalProdKey",
+				"rankedduplicatesAndCountTotalProdKey filter(rank==1) ~> rank1",
+				"rank1 select(mapColumn(",
+				"          ProductKey,",
+				"          Country,",
+				"          EnglishProductName,",
+				"          SalesAmount,",
+				"          {Total Sold}",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectcolumns",
+				"selectcolumns sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkInAdls"
+			]
+		}
+	}
+}

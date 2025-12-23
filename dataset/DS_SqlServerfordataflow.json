@@ -1,0 +1,42 @@
+{
+	"name": "DS_SqlServerfordataflow",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "OrderDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductKey",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnglishProductName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SalesAmount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TaxAmt",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ordersNew"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

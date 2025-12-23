@@ -1,0 +1,25 @@
+{
+	"name": "CopytestSourceDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Copydata1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "OrdersNew.csv",
+				"folderPath": "input",
+				"container": "first-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
