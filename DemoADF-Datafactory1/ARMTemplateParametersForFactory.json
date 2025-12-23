@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DemoADF-Datafactory1"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"LS_Copydata1_connectionString": {
+			"value": ""
+		},
+		"LS_ParameterfromSql_accountKey": {
+			"value": ""
+		},
+		"LS_Sql_password": {
+			"value": ""
+		},
+		"LS_SqlintoADLS_DF_accountKey": {
+			"value": ""
+		},
+		"LS_copyfullfolderdata_accountKey": {
+			"value": ""
+		},
+		"LS_specificFile_accountKey": {
+			"value": ""
+		},
+		"LS_ParameterfromSql_properties_typeProperties_url": {
+			"value": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_Sql_properties_typeProperties_server": {
+			"value": "azure-sqlserver.database.windows.net"
+		},
+		"LS_Sql_properties_typeProperties_database": {
+			"value": "AzureDb"
+		},
+		"LS_Sql_properties_typeProperties_userName": {
+			"value": "sqladmin"
+		},
+		"LS_SqlintoADLS_DF_properties_typeProperties_url": {
+			"value": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_copyfullfolderdata_properties_typeProperties_url": {
+			"value": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_specificFile_properties_typeProperties_url": {
+			"value": "https://firstdemoadls.dfs.core.windows.net/"
+		}
+	}
+}

@@ -1,0 +1,160 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DemoADF-Datafactory1"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"LS_Copydata1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Copydata1'"
+		},
+		"LS_ParameterfromSql_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ParameterfromSql'"
+		},
+		"LS_Sql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_Sql'"
+		},
+		"LS_SqlintoADLS_DF_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SqlintoADLS_DF'"
+		},
+		"LS_copyfullfolderdata_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_copyfullfolderdata'"
+		},
+		"LS_specificFile_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_specificFile'"
+		},
+		"LS_ParameterfromSql_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_Sql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "azure-sqlserver.database.windows.net"
+		},
+		"LS_Sql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AzureDb"
+		},
+		"LS_Sql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sqladmin"
+		},
+		"LS_SqlintoADLS_DF_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_copyfullfolderdata_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"LS_specificFile_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://firstdemoadls.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DemoADF-Datafactory1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"LS_Copydata1_connectionString": {
+						"value": "[parameters('LS_Copydata1_connectionString')]"
+					},
+					"LS_ParameterfromSql_accountKey": {
+						"value": "[parameters('LS_ParameterfromSql_accountKey')]"
+					},
+					"LS_Sql_password": {
+						"value": "[parameters('LS_Sql_password')]"
+					},
+					"LS_SqlintoADLS_DF_accountKey": {
+						"value": "[parameters('LS_SqlintoADLS_DF_accountKey')]"
+					},
+					"LS_copyfullfolderdata_accountKey": {
+						"value": "[parameters('LS_copyfullfolderdata_accountKey')]"
+					},
+					"LS_specificFile_accountKey": {
+						"value": "[parameters('LS_specificFile_accountKey')]"
+					},
+					"LS_ParameterfromSql_properties_typeProperties_url": {
+						"value": "[parameters('LS_ParameterfromSql_properties_typeProperties_url')]"
+					},
+					"LS_Sql_properties_typeProperties_server": {
+						"value": "[parameters('LS_Sql_properties_typeProperties_server')]"
+					},
+					"LS_Sql_properties_typeProperties_database": {
+						"value": "[parameters('LS_Sql_properties_typeProperties_database')]"
+					},
+					"LS_Sql_properties_typeProperties_userName": {
+						"value": "[parameters('LS_Sql_properties_typeProperties_userName')]"
+					},
+					"LS_SqlintoADLS_DF_properties_typeProperties_url": {
+						"value": "[parameters('LS_SqlintoADLS_DF_properties_typeProperties_url')]"
+					},
+					"LS_copyfullfolderdata_properties_typeProperties_url": {
+						"value": "[parameters('LS_copyfullfolderdata_properties_typeProperties_url')]"
+					},
+					"LS_specificFile_properties_typeProperties_url": {
+						"value": "[parameters('LS_specificFile_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DemoADF-Datafactory1_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DemoADF-Datafactory1_ArmTemplate_0')]"
+			]
+		}
+	]
+}
