@@ -1,0 +1,9 @@
+{
+	"name": "DF-azuredemo1",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1b83491a-61fa-42af-82f2-5da2cc6d8347",
+		"tenantId": "05caa449-bf95-455b-8914-2b493d7922fd"
+	}
+}
