@@ -1,0 +1,61 @@
+{
+	"name": "DS_SplitTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_specificFile",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "orders.csv",
+				"folderPath": "input",
+				"fileSystem": "container1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "OrderDate",
+				"type": "String"
+			},
+			{
+				"name": "ProductKey",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "EnglishProductName",
+				"type": "String"
+			},
+			{
+				"name": "SalesAmount",
+				"type": "String"
+			},
+			{
+				"name": "UnitPrice",
+				"type": "String"
+			},
+			{
+				"name": "OrderQuantity",
+				"type": "String"
+			},
+			{
+				"name": "TaxAmt",
+				"type": "String"
+			},
+			{
+				"name": "TotalProductCost",
+				"type": "String"
+			}
+		]
+	}
+}

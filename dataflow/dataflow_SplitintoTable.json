@@ -1,0 +1,58 @@
+{
+	"name": "dataflow_SplitintoTable",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_SplitTable",
+						"type": "DatasetReference"
+					},
+					"name": "sourceIndia"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_adlstoSql",
+						"type": "DatasetReference"
+					},
+					"name": "sinkIndia"
+				}
+			],
+			"transformations": [
+				{
+					"name": "splitIndia"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OrderDate as string,",
+				"          ProductKey as string,",
+				"          Country as string,",
+				"          EnglishProductName as string,",
+				"          SalesAmount as string,",
+				"          UnitPrice as string,",
+				"          OrderQuantity as string,",
+				"          TaxAmt as string,",
+				"          TotalProductCost as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourceIndia",
+				"sourceIndia split(Country=='India',",
+				"     disjoint: false) ~> splitIndia@(India, Others)",
+				"splitIndia@India sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkIndia"
+			]
+		}
+	}
+}
