@@ -1,0 +1,16 @@
+{
+	"name": "DS_splitinSql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "OrdersIndia"
+		}
+	}
+}
