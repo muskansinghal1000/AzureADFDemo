@@ -15,10 +15,17 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DS_adlstoSql",
+						"referenceName": "DS_Sql",
 						"type": "DatasetReference"
 					},
 					"name": "sinkIndia"
+				},
+				{
+					"dataset": {
+						"referenceName": "SqlServerTable1",
+						"type": "DatasetReference"
+					},
+					"name": "sinkOthers"
 				}
 			],
 			"transformations": [
@@ -51,7 +58,16 @@
 				"     upsertable:false,",
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sinkIndia"
+				"     skipDuplicateMapOutputs: true) ~> sinkIndia",
+				"splitIndia@Others sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkOthers"
 			]
 		}
 	}

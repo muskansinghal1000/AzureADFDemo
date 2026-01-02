@@ -1,0 +1,16 @@
+{
+	"name": "DS_Sql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_sql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "OrdersIndia"
+		}
+	}
+}
