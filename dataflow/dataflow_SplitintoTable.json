@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_SplitTable",
+						"referenceName": "DS_SplitTableSource",
 						"type": "DatasetReference"
 					},
 					"name": "sourceIndia"
@@ -21,6 +21,10 @@
 					"name": "sinkIndia"
 				},
 				{
+					"dataset": {
+						"referenceName": "DS_splitothersdata",
+						"type": "DatasetReference"
+					},
 					"name": "sinkOthers"
 				}
 			],
@@ -57,6 +61,11 @@
 				"     skipDuplicateMapOutputs: true) ~> sinkIndia",
 				"splitIndia@Others sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> sinkOthers"
 			]
