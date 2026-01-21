@@ -1,0 +1,53 @@
+{
+	"name": "DS_SinkSqlServer",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Sql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "OrderDate",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ProductKey",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EnglishProductName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "SalesAmount",
+				"type": "nvarchar"
+			},
+			{
+				"name": "UnitPrice",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OrderQuantity",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TaxAmt",
+				"type": "nvarchar"
+			},
+			{
+				"name": "TotalProductCost",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "OrdersIndia"
+		}
+	}
+}
