@@ -56,7 +56,7 @@
 				]
 			},
 			{
-				"name": "Get Metadata1",
+				"name": "Get file Metadata",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -83,6 +83,12 @@
 						"type": "DelimitedTextReadSettings"
 					}
 				}
+			},
+			{
+				"name": "Execute each file",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
 			}
 		],
 		"annotations": []
